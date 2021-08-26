@@ -19,11 +19,11 @@ text2 {
   font-weight: normal;
   font-size: 28px;
   margin-left: 15%;
-  color: #475bff;
+  color: #0d33ff;
 }
 text3 {
   font-size: 20px;
-  color: #475bff;
+  color: #0d33ff;
   text-decoration: none;
 }
 text4 {
@@ -39,7 +39,7 @@ text6 {
 }
 text7 {
   font-size: 18px;
-  color: #475bff;
+  color: #0d33ff;
   text-decoration: underline;
 }
 text8 {
@@ -54,7 +54,7 @@ text9 {
 }
 text10 {
   font-size: 28px;
-  color: #475bff;
+  color: #0d33ff;
 }
 text11 {
   font-family: Arial;
@@ -65,14 +65,14 @@ text11 {
 }
 .link1:hover {
   text-decoration: underline;
-  color: #475bff;
+  color: #0d33ff;
 }
 .link2 {
   text-decoration: none;
 }
 .link2:hover {
   text-decoration: none;
-  color: #475bff;
+  color: #0d33ff;
 }
 .column1 {
   float: left;
@@ -137,19 +137,19 @@ li a {
   transition: 0.4s;
 }
 li a:hover {
-  color: #475bff;
+  color: #0d33ff;
   opacity: 0.65;
   transition: 0.4s;
 }
 li a:after{
-  color: #475bff;
-  border-bottom: 1px solid #475bff;
+  color: #0d33ff;
+  border-bottom: 1px solid #0d33ff;
   padding-bottom: .15em;
   text-decoration: none;
 }
 .active {
-  color: #475bff;
-  border-bottom: 1px solid #475bff;
+  color: #0d33ff;
+  border-bottom: 1px solid #0d33ff;
   padding-bottom: .15em;
   text-decoration: none;
 }
@@ -244,8 +244,8 @@ footer {
   text-decoration: none;
 }
 .title:hover {
-  color: #475bff;
-  opacity: 0.7;
+  color: #0d33ff;
+  opacity: 0.8;
   transition: 0.4s;
 }
 hr {
@@ -262,7 +262,7 @@ hr {
 }
 .work-title {
   font-size: 24px;
-  color: #475bff;
+  color: #0d33ff;
   text-decoration: none;
   text-align: center;
 }
@@ -315,7 +315,7 @@ input[type=submit] {
   letter-spacing: 1px;
 }
 input[type=submit]:hover {
-  background-color: #475bff;
+  background-color: #0d33ff;
   opacity: 0.6;
   transition: 0.35s ease;
 }
@@ -353,6 +353,6 @@ label {
   font-size: 30px;
 }
 .icon-bar a:hover {
-  color: #475bff;
+  color: #0d33ff;
   opacity: 0.65;
 }
