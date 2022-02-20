@@ -294,6 +294,18 @@ hr {
   text-decoration: none;
   text-align: center;
 }
+.pg-title1 {
+  font-size: 18px;
+  color: #475bff;
+  text-decoration: none;
+  text-align: left;
+}
+.pg-title2 {
+  font-size: 17px;
+  color: #475bff;
+  text-decoration: none;
+  text-align: left;
+}
 p {
   display: block;
   margin-block-start: 7.5px;
