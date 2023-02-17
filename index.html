@@ -1,113 +1,614 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Azeret+Mono&family=Inter&family=Roboto+Mono&display=swap"
       rel="stylesheet"
-      media="screen"
-      href="https://fontlibrary.org//face/sometype-mono"
-      type="text/css"
     />
     <script
       src="https://kit.fontawesome.com/0fe1d8e24e.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Age Smartly</title>
+    <title>Chenxi's Portfolio</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        line-height: 1.4;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+      }
+      header h1 {
+        margin-left: 10%;
+        font-family: "Roboto Mono", monospace;
+        letter-spacing: 4px;
+        word-spacing: -8px;
+      }
+      header nav {
+        margin-right: 10%;
+      }
+      header nav a {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 20px;
+        font-size: 18px;
+        font-family: "Roboto Mono", monospace;
+        transition: opacity 0.4s;
+      }
+
+      header nav a:hover {
+        opacity: 0.8;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+      section {
+        width: 80%;
+        margin: 40px 0;
+      }
+      #intro {
+        background-color: #fff;
+      }
+      #portfolio {
+        width: 80%;
+        margin: 50px auto;
+        text-align: center;
+      }
+
+      #portfolio h2 {
+        font-size: 36px;
+        margin-bottom: 50px;
+      }
+
+      .portfolio-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .portfolio-item {
+        position: relative;
+        display: inline-block;
+        width: 31%;
+        margin-bottom: 50px;
+        text-align: left;
+      }
+
+      .portfolio-item img {
+        background-color: #fff;
+        /*border: 1px solid #333;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);*/
+        width: 100%;
+      }
+
+      .portfolio-item p {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+      .portfolio-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        text-align: center;
+      }
+
+      .portfolio-details {
+        display: none;
+      }
+
+      .read-more-btn {
+        font-family: "Inter", sans-serif;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      .read-more-btn:hover {
+        background-color: #fff;
+        color: #333;
+        transition: all 0.4s ease-in-out;
+      }
+      /* About Me Section */
+      #about-me {
+        width: 80%;
+        margin: 50px auto;
+        text-align: center;
+      }
+      #intro h2 {
+        font-size: 42px;
+        margin-bottom: 30px;
+      }
+      #about-me h2 {
+        font-size: 24px;
+      }
+      #portfolio h2 {
+        font-size: 24px;
+        margin-bottom: 32px;
+      }
+      h2 {
+        font-family: "Roboto Mono", monospace;
+        color: #333;
+      }
+      .portfolio-title {
+        font-family: "Roboto Mono", monospace;
+        color: #6688cc;
+      }
+      .about-me-section {
+        display: flex;
+        align-items: center;
+      }
+
+      .profile-photo {
+        width: 20%;
+        text-align: center;
+      }
+
+      .profile-photo img {
+        width: 100%;
+        border-radius: 50%;
+      }
+
+      .about-me-text {
+        width: 70%;
+        margin-left: 50px;
+        text-align: left;
+      }
+
+      .about-me-text p {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-family: "Inter", sans-serif;
+        background-color: #333;
+        color: #fff;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 16px;
+        transition: all 0.4s ease-in-out;
+      }
+
+      .btn:hover {
+        background-color: #6688cc;
+        color: #fff;
+        cursor: pointer;
+      }
+      .timeline-text {
+        font-size: 14px;
+        margin-top: 6px;
+        color: #666;
+      }
+      .contact-section {
+        text-align: right;
+      }
+      .contact-section p {
+        margin: 20px 0;
+      }
+      .contact-section a {
+        color: #333;
+        text-decoration: none;
+        margin-right: 10px;
+        font-size: 18px;
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      /*.highlight {
+        background-color: #acbfe6;
+        padding: 2px;
+      }*/
+      .highlight {
+        background-color: #acbfe6;
+        padding: 5px 10px;
+        color: #333;
+        display: inline-block;
+        transition: background-color 0.2s ease-out;
+        position: relative;
+      }
+      .highlight:hover {
+        background-color: transparent;
+      }
+      .highlight:hover:after {
+        content: "How're things?";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 5px 10px;
+        color: #6688cc;
+        background-color: white;
+      }
+      .container {
+        background: #fff;
+        width: 50%;
+        height: 800px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .rightbox {
+        padding: 0em 34rem 0em 0em;
+        height: 100%;
+      }
+
+      .rb-container {
+        width: 50%;
+        margin: auto;
+        display: block;
+        position: relative;
+      }
+
+      .rb-container ul.rb {
+        margin: 2.5em 0;
+        padding: 0;
+        display: inline-block;
+      }
+
+      .rb-container ul.rb li {
+        list-style: none;
+        margin: auto;
+        margin-left: 10em;
+        min-height: 50px;
+        border-left: 1px dashed #3b5d8f;
+        padding: 0 0 50px 30px;
+        position: relative;
+      }
+
+      .rb-container ul.rb li:last-child {
+        border-left: 0;
+      }
+
+      .rb-container ul.rb li::before {
+        position: absolute;
+        left: -18px;
+        top: -5px;
+        content: " ";
+        border: 8px solid rgba(172, 191, 230, 1);
+        border-radius: 500%;
+        background: #6688cc;
+        height: 20px;
+        width: 20px;
+        transition: all 500ms ease-in-out;
+      }
+
+      .rb-container ul.rb li:hover::before {
+        border-color: #3b5d8f;
+        transition: all 1000ms ease-in-out;
+      }
+
+      ul.rb li .timestamp {
+        color: #6688cc;
+        position: relative;
+        width: 300px;
+        font-size: 16px;
+      }
+
+      .item-title {
+        font-size: 16px;
+      }
+      #back-to-top-btn {
+        position: fixed;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.2px;
+        bottom: 20px;
+        right: 20px;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 15px;
+        border: 1px solid #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      #back-to-top-btn:hover {
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #333;
+      }
+    </style>
   </head>
   <body>
-    <div class="header">
-      <a href="index.html" class="logo">AgeSmartly</a>
-      <div class="navigation">
-        <ul class="list1">
-          <li class="nav">
-            <a class="active" href="index.html">Home</a>
-          </li>
-          <li class="nav"><a href="about.html">About</a></li>
-          <li class="nav"><a href="explore.html">Explore</a></li>
-          <li class="nav"><a href="events.html">Events</a></li>
-          <li class="nav"><a href="join.html">Join us</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container_1">
-      <div class="item active" style="background-image: url(img/events.jpg)">
-        <div class="shadow"></div>
-        <div class="content1">
-          <div class="icon">
-            <i class="fa-brands fa-diaspora"></i>
+    <!-- Add a header section -->
+    <header>
+      <h1>CHENXI BI</h1>
+      <nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about-me">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Add the main content -->
+    <main>
+      <section id="intro">
+        <h2><span class="highlight">Hi, I'm Chenxi.</span></h2>
+        <div class="about-me-section">
+          <p>
+            I am a creative and motivated UX and service designer with a passion
+            for creating intuitive and user-centered designs. Explore my
+            portfolio to see my work and feel free to contact me if you have any
+            inquiries :)
+          </p>
+        </div>
+      </section>
+      <!-- Add the portfolio section -->
+      <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-section">
+          <div class="portfolio-item">
+            <img
+              src="https://via.placeholder.com/300x200"
+              alt="Portfolio item 1"
+            />
+            <div class="portfolio-text">
+              <h3 class="portfolio-title">SafeNest</h3>
+              <p class="portfolio-type">Service Design</p>
+              <div class="portfolio-details">
+                <p>Project Introduction</p>
+                <button class="read-more-btn">Read More</button>
+              </div>
+            </div>
           </div>
-          <div class="text">
-            <div class="title1">About</div>
-            <div class="text2">
-              Digital divide demands our society’s attention.
+          <div class="portfolio-item">
+            <img
+              src="https://via.placeholder.com/300x200"
+              alt="Portfolio item 2"
+            />
+            <div class="portfolio-text">
+              <h3 class="portfolio-title">ARISE</h3>
+              <p class="portfolio-type">Interaction Design</p>
+              <div class="portfolio-details">
+                <p>Project Introduction</p>
+                <button class="read-more-btn">Read More</button>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://via.placeholder.com/300x200"
+              alt="Portfolio item 3"
+            />
+            <div class="portfolio-text">
+              <h3 class="portfolio-title">her net</h3>
+              <p class="portfolio-type">UX Design</p>
+              <div class="portfolio-details">
+                <p>Project Introduction</p>
+                <button class="read-more-btn">Read More</button>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://via.placeholder.com/300x200"
+              alt="Portfolio item 4"
+            />
+            <div class="portfolio-text">
+              <h3 class="portfolio-title">Orderlite</h3>
+              <p class="portfolio-type">Product Design</p>
+              <div class="portfolio-details">
+                <p>Project Introduction</p>
+                <button class="read-more-btn">Read More</button>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://via.placeholder.com/300x200"
+              alt="Portfolio item 5"
+            />
+            <div class="portfolio-text">
+              <h3 class="portfolio-title">Project Title</h3>
+              <p class="portfolio-type">Interaction Design</p>
+              <div class="portfolio-details">
+                <p>Project Introduction</p>
+                <button class="read-more-btn">Read More</button>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://via.placeholder.com/300x200"
+              alt="Portfolio item 6"
+            />
+            <div class="portfolio-text">
+              <h3 class="portfolio-title">Project Title</h3>
+              <p class="portfolio-type">UX Design</p>
+              <div class="portfolio-details">
+                <p>Project Introduction</p>
+                <button class="read-more-btn">Read More</button>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://via.placeholder.com/300x200"
+              alt="Portfolio item 7"
+            />
+            <div class="portfolio-text">
+              <h3 class="portfolio-title">Project Title</h3>
+              <p class="portfolio-type">UX Design</p>
+              <div class="portfolio-details">
+                <p>Project Introduction</p>
+                <button class="read-more-btn">Read More</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="item" style="background-image: url(img/home_explore.jpeg)">
-        <div class="shadow"></div>
-        <div class="content1">
-          <div class="icon">
-            <i class="fa-solid fa-globe"></i>
+      </section>
+
+      <!-- About Me Section -->
+      <section id="about-me">
+        <h2>About Me</h2>
+        <div class="about-me-section">
+          <div class="profile-photo">
+            <img src="profile_photo.jpg" alt="Profile Photo" />
           </div>
-          <div class="text">
-            <div class="title1">Explore</div>
-            <div class="text2">
-              Explainers of major topics centred on seniors and ageing. For all.
+          <div class="about-me-text">
+            <p>
+              Hi there! I'm a recent BA Digital Media graduate from the
+              University of Leeds in the UK, currently pursuing a double degree
+              in MSc Human Computer Interaction and Design at the Université
+              Paris-Saclay in France and the Aalto University in Finland. My
+              skills include UI/UX design, service design, graphic design, and
+              web programming. I'm eager to use my creativity and technical
+              skills as a UX & service designer to create meaningful user
+              experiences. You can find my resume here :)
+            </p>
+            <a href="Chenxi Bi Resume 2023.pdf" class="btn">See my resume</a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="rightbox">
+            <div class="rb-container">
+              <ul class="rb">
+                <li class="rb-item" ng-repeat="itembx">
+                  <div class="timestamp">Feb 2002 - Jul 2018</div>
+                  <div class="item-title">Born and raised, Panjin, China</div>
+                  <div class="timeline-text">
+                    Began exploring the world around. Developed interests in art
+                    and music. Spent countless hours creating new worlds,
+                    characters, and scenarios through imagination.
+                  </div>
+                </li>
+                <li class="rb-item" ng-repeat="itembx">
+                  <div class="timestamp">Sep 2018 - Jul 2019</div>
+                  <div class="item-title">
+                    International Foundation Year<br />University of Leeds,
+                    England
+                  </div>
+                  <div class="timeline-text">
+                    Experienced diverse cultures, contexts and individuals.
+                    Discovered sociology, fostering sensitivity to social issues
+                    and a desire to make a positive impact.
+                  </div>
+                </li>
+
+                <li class="rb-item" ng-repeat="itembx">
+                  <div class="timestamp">Sep 2019 - Jul 2022</div>
+                  <div class="item-title">
+                    Bachelor of Arts in Digital Media<br />University of Leeds,
+                    England
+                  </div>
+                  <div class="timeline-text">
+                    Faced challenges, overcame and grew. Made mistakes, gained
+                    insightful lessons. Acquired social sciences research and
+                    multimedia production skills.
+                  </div>
+                </li>
+                <li class="rb-item" ng-repeat="itembx">
+                  <div class="timestamp">Sep 2022 - present</div>
+                  <div class="item-title">
+                    Master of Science in Human Computer Interaction and
+                    Design<br />Université Paris-Saclay, France
+                  </div>
+                  <div class="timeline-text">
+                    Learned methods and techniques. Worked in diverse teams.
+                    Transformed ideas into tangible designs.
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-      <div class="item" style="background-image: url(img/home_events.jpg)">
-        <div class="shadow"></div>
-        <div class="content1">
-          <div class="icon">
-            <i class="fa-solid fa-head-side-mask"></i>
-          </div>
-          <div class="text">
-            <div class="title1">Events</div>
-            <div class="text2">
-              We organize exciting events to make a difference to the community.
-            </div>
-          </div>
+      </section>
+
+      <!-- Add the contact section -->
+      <section id="contact">
+        <h2 style="text-align: right">Contact</h2>
+        <div class="contact-section">
+          <p>Feel free to get in touch with me. I'd love to hear from you!</p>
+          <p>Email: bcx0216@gmail.com</p>
+          <p>
+            <a href="https://linkedin.com/in/your-username">
+              <i class="fa fa-linkedin"></i>
+            </a>
+            <a href="https://dribbble.com/your-username">
+              <i class="fa-brands fa-dribbble"></i>
+            </a>
+          </p>
         </div>
-      </div>
-      <div class="item" style="background-image: url(img/home_support.jpg)">
-        <div class="shadow"></div>
-        <div class="content1">
-          <div class="icon">
-            <i class="fa-solid fa-hand-holding-heart"></i>
-          </div>
-          <div class="text">
-            <div class="title1">Join us</div>
-            <div class="text2">Take action now. For good.</div>
-          </div>
-        </div>
-      </div>
-      <div class="item" style="background-image: url(img/home_meet.jpg)">
-        <div class="shadow"></div>
-        <div class="content1">
-          <div class="icon">
-            <i class="fa-solid fa-video"></i>
-          </div>
-          <div class="text">
-            <div class="title1">MEET.com</div>
-            <div class="text2">
-              An accessible video calling site for seniors and whoever feel less
-              confident to make video calls.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="app.js"></script>
+      </section>
+    </main>
+    <footer>
+      <p>Copyright &copy; 2023 Chenxi Bi</p>
+    </footer>
+    <button id="back-to-top-btn">Scroll to top</button>
+    <script>
+      const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+      portfolioItems.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          item.querySelector(".portfolio-details").style.display = "block";
+        });
+
+        item.addEventListener("mouseleave", () => {
+          item.querySelector(".portfolio-details").style.display = "none";
+        });
+      });
+      const links = document.querySelectorAll("nav a");
+
+      for (const link of links) {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          target.scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      }
+      for (const link of links) {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          target.scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      }
+      document
+        .getElementById("back-to-top-btn")
+        .addEventListener("click", function () {
+          window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+        });
+    </script>
   </body>
 </html>
