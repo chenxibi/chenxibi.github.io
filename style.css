@@ -6,7 +6,7 @@
 }
 /* Global Styles */
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #333;
@@ -40,16 +40,18 @@ header {
   z-index: 999;
 }
 
-header h1 {
-  margin-left: 10%;
-  font-family: "Roboto Mono", monospace;
-  font-size: 26px;
-  letter-spacing: 4px;
-  word-spacing: -8px;
+.website-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.website-nav {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
 }
 
 .sticky-nav {
-  display: block;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
@@ -58,7 +60,7 @@ header h1 {
 .sticky-nav ul {
   display: flex;
   list-style: none;
-  margin-left: 60%;
+  margin-left: 12%;
 }
 
 .sticky-nav ul li {
@@ -70,7 +72,7 @@ header h1 {
 }
 
 .sticky-nav a {
-  font-weight: normal;
+  /*font-weight: normal;*/
   font-size: 1.1rem;
   transition: color 0.2s ease;
 }
