@@ -35,3 +35,15 @@ portfolioItems.forEach((item) => {
     item.querySelector("img").style.transform = "scale(1)";
   });
 });
+
+// Smooth scroll to section on navigation click
+const navLinks = document.querySelectorAll("nav a");
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const sectionId = link.getAttribute("href");
+    document.querySelector(sectionId).scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+});
