@@ -20,11 +20,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Smooth scroll to top on button click
-backToTopButton.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
 // Portfolio item hover effect
 const portfolioItems = document.querySelectorAll(".item");
 portfolioItems.forEach((item) => {
