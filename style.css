@@ -4,6 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+p{
+  margin: 0 0 10px 0;
+  }
 html {
   scroll-behavior: smooth;
 }
@@ -19,11 +22,17 @@ a {
   text-decoration: none;
   color: #333;
 }
-
+h1 {
+  margin-bottom: 1rem;
+  font-family: "Montserrat", sans-serif;
+}
 h2 {
   margin-bottom: 1rem;
   text-align: center;
   font-family: "Montserrat", sans-serif;
+}
+.text1 {
+  font-weight: bold;
 }
 section {
   margin: 5% 0;
@@ -105,7 +114,7 @@ header {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 10%;
+  /*margin-top: 10%;*/
 }
 
 .about-info img {
@@ -122,7 +131,7 @@ header {
   background-color: #333;
   color: #fff;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.2rem;
   font-size: 1rem;
   font-weight: 700;
   /*border-radius: 2rem;*/
@@ -207,11 +216,11 @@ footer {
 /* Back to Top Button */
 .back-to-top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 40px;
+  right: 30px;
   display: none;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-color: #333;
   color: #fff;
   border: none;
@@ -271,16 +280,63 @@ footer {
     right: 10px;
   }
 }
-
-/*Item Pages*/
-
-.item-page-info h2 {
-  margin-top: 10%;
-  margin-bottom: 5%;
+img, video {
+  max-width: 100%;
+  max-height: 540px;
+  vertical-align: top;
 }
-.item-page-images {
-  margin: 5% 0;
+
+
+.gallery {
+  display: flex;
+  margin: 10px auto;
+  max-width: 500px;
+  position: relative;
+  padding-top: calc(500px / 500px * 100%);
 }
-.item-page-images img {
+@media screen and (min-width: 500px) {
+  .gallery {
+    padding-top: 500px;
+  }
+}
+
+.gallery__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.gallery__video {
   width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+.gallery__thumb {
+  padding-top: 6px;
+  margin: 6px;
+  display: block;
+}
+
+
+.gallery__selector {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.gallery__selector:checked + .gallery__img,
+.gallery__selector:checked + .gallery__video {
+  opacity: 1;
+}
+
+.gallery__selector:checked ~ .gallery__thumb > img {
+  box-shadow: 0 0 0 3px #0be2f6;
 }
