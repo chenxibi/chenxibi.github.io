@@ -25,11 +25,16 @@ a {
 h1 {
   margin-bottom: 1rem;
   font-family: "Montserrat", sans-serif;
+  font-size:48px;
 }
 h2 {
   margin-bottom: 1rem;
   text-align: center;
   font-family: "Montserrat", sans-serif;
+}
+h4 {
+  font-weight: bold;
+  padding-bottom: 2px;
 }
 .text1 {
   font-weight: bold;
@@ -280,26 +285,23 @@ footer {
     right: 10px;
   }
 }
-img, video {
+img {
   max-width: 100%;
-  max-height: 540px;
+  max-height: 100%;
   vertical-align: top;
 }
-
-
 .gallery {
   display: flex;
   margin: 10px auto;
-  max-width: 500px;
+  max-width: 900px;
   position: relative;
-  padding-top: calc(500px / 500px * 100%);
+  padding-top: calc(900px / 600px * 100%);
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
   .gallery {
-    padding-top: 500px;
+    padding-top: 600px;
   }
 }
-
 .gallery__img {
   position: absolute;
   top: 0;
@@ -307,36 +309,49 @@ img, video {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-
-.gallery__video {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-
 .gallery__thumb {
   padding-top: 6px;
   margin: 6px;
   display: block;
 }
-
-
 .gallery__selector {
   position: absolute;
   opacity: 0;
   visibility: hidden;
 }
-
 .gallery__selector:checked + .gallery__img,
 .gallery__selector:checked + .gallery__video {
   opacity: 1;
 }
-
 .gallery__selector:checked ~ .gallery__thumb > img {
   box-shadow: 0 0 0 3px #0be2f6;
+}
+.fa {
+  padding: 20px;
+  font-size: 36px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fa:hover {
+  opacity: 0.7;
+  transition: 0.3s ease-in-out;
+}
+.text-video {
+  display: flex;
+}
+.gk-text {
+  margin-right: 20px;
+}
+.qr-code {
+  width: 80px;
+  height: 80px;
+}
+.subtitle {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size:38px;
+  font-weight: bold;
 }
