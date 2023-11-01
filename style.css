@@ -119,7 +119,6 @@ header {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /*margin-top: 10%;*/
 }
 
 .about-info img {
@@ -129,7 +128,8 @@ header {
 }
 
 .about-info p {
-  margin-bottom: 1rem;
+  width: 72%;
+  margin: 1rem;
 }
 
 .about-info button {
