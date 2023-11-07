@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CS-E5220 Assignment 2a</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        h1 {
+            margin-top: 280px;
+            font-family: monospace;
+        }
+        button {
+            margin-top: 30px;
+            background-color: skyblue;
+            color: #555;
+            border: none;
+            padding: 10px 20px;
+            font-family: monospace;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(188, 236, 255);
+        }
+    </style>
+</head>
+<body>
+    <h1>CS-E5220 Assignment 2a by Chenxi Bi</h1>
+    <button id="clickMeButton">Click me</button>
+
+    <script>
+        // Get a reference to the button element
+        const button = document.getElementById('clickMeButton');
+
+        // Add a click event listener to the button
+        button.addEventListener('click', function () {
+            alert('The assignment has been completed :)');
+        });
+    </script>
+</body>
+</html>
