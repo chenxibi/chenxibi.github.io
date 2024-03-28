@@ -357,15 +357,9 @@ img {
 }
 .column {
   float: left;
-  width: 32%;
-  padding-top: 10px;}
-.column-middle {
-  float: left;
-  width: 32%; /* Adjusted width to accommodate margins */
-  padding: 10px;
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-bottom: 30px;
+  width: 33.3%;
+  padding-top: 10px;
+  padding-bottom: 4%;
 }
 .column h2 {
   text-align: left;
