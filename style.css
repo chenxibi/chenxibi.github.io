@@ -132,16 +132,18 @@ header {
   margin: 1rem;
 }
 
-.about-info button {
+.about-info a button {
   background-color: #333;
+  font-family: "Montserrat", sans-serif;
   color: #fff;
   border: none;
   padding: 0.75rem 1.2rem;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 500;
   /*border-radius: 2rem;*/
   margin-top: 1rem;
   transition: background-color 0.2s ease;
+  cursor: pointer;
 }
 
 .about-info button a {
