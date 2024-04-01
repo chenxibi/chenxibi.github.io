@@ -42,3 +42,11 @@ navLinks.forEach((link) => {
     });
   });
 });
+// Wait for the page to fully load
+window.addEventListener('load', function() {
+  // Get the loader element
+  var loader = document.getElementById('loader');
+  
+  // Hide the loader
+  loader.style.display = 'none';
+});
