@@ -1,0 +1,97 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>语料调配师</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            cursor: url('assets/ui/cursor.png'), auto;
+        }
+        .material, .demand-card, .ai-card {
+            cursor: url('assets/ui/hand-cursor.png') 15 15, grab;
+        }
+        .material:active, .demand-card:active {
+            cursor: url('assets/ui/grab-cursor.png') 15 15, grabbing;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <button id="pause-btn">⏸ 暂停</button>
+        
+        <div id="status-bar">
+            <div class="resource" data-type="coin">
+                <div class="resource-icon">
+                    <img src="assets/ui/coin_icon.png" class="type-icon">
+                    <img src="assets/ui/face_happy.png" class="status-icon">
+                </div>
+                <div class="resource-info">
+                    <span class="label">资金</span>
+                    <span class="value">1000</span>
+                </div>
+                <div class="tooltip"></div>
+            </div>
+            <div class="resource" data-type="brain">
+                <div class="resource-icon">
+                    <img src="assets/ui/brain_icon.png" class="type-icon">
+                    <img src="assets/ui/face_happy.png" class="status-icon">
+                </div>
+                <div class="resource-info">
+                    <span class="label">精神值</span>
+                    <span class="value">80</span>
+                </div>
+                <div class="tooltip"></div>
+            </div>
+            <div class="resource" data-type="biohazard">
+                <div class="resource-icon">
+                    <img src="assets/ui/biohazard_icon.png" class="type-icon">
+                    <img src="assets/ui/face_happy.png" class="status-icon">
+                </div>
+                <div class="resource-info">
+                    <span class="label">污染值</span>
+                    <span class="value">20</span>
+                </div>
+                <div class="tooltip"></div>
+            </div>
+        </div>
+
+        <div id="client-notification">
+            <div id="phone-icon">📱</div>
+            <div id="demand-text"></div>
+        </div>
+
+        <div id="mixing-chamber">
+            <img src="assets/ui/ai_core.jpg" id="ai-core">
+        </div>
+
+        <div id="material-belt" class="material-belt">
+            <div class="material-slide"></div>
+        </div>
+
+        <div id="right-panel">
+            <div id="demand-queue" class="panel-section">
+                <h3>待办需求 ▾</h3>
+            </div>
+            <div id="ai-storage" class="panel-section">
+                <h3>AI仓库 ▾</h3>
+            </div>
+        </div>
+
+        <div id="ending-screen" class="hidden">
+            <h2 id="ending-title"></h2>
+            <p id="ending-description"></p>
+            <button id="restart-btn">重新开始</button>
+        </div>
+
+        <div id="ai-response" class="hidden">
+            <div id="ai-bubble"></div>
+        </div>
+
+        <button id="clear-ai-btn" class="hidden">清除所有AI</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
