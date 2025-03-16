@@ -1,0 +1,531 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url('assets/ui/cursor.png'), auto;
+}
+
+/* 自定义字体声明 */
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('assets/fonts/wenquanyidianzhensongti.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+body {
+    overflow: hidden;
+    background: #1a1a1a;
+    font-family: 'MyCustomFont', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400; /* 常规字重 */
+}
+
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    background: url('assets/bg/lab.jpg') center/cover;
+    position: relative;
+}
+
+#pause-btn {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 20px;
+    background: rgba(0,255,136,0.8);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    z-index: 999;
+    backdrop-filter: blur(3px);
+    transition: 0.2s;
+}
+
+#pause-btn:hover {
+    background: rgba(0,255,136,1);
+}
+
+#status-bar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 30px;
+    padding: 15px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.resource {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    padding: 5px;
+    cursor: help;
+}
+
+.resource .icon {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s;
+}
+
+#client-notification {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    display: none;
+    backdrop-filter: blur(3px);
+}
+
+#phone-icon {
+    font-size: 3em;
+    animation: vibrate 0.3s linear 3;
+}
+
+@keyframes vibrate {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+#mixing-chamber {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 300px;
+    border: 3px dashed #666;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+#mixing-chamber.drag-over {
+    border-color: #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+}
+
+#ai-core {
+    width: 120px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.05); }
+}
+
+#material-pool {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    height: 100px;
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+
+.material {
+    padding: 10px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 5px;
+    cursor: grab;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+    position: relative;
+    z-index: 500;
+    transition: all 0.3s;
+    flex-shrink: 0;
+    opacity: 0;
+    animation: materialAppear 0.8s forwards;
+}
+
+.material:hover {
+    transform: translateY(-5px);
+}
+
+.material img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+.material span {
+    font-size: 12px;
+    text-align: center;
+}
+
+#right-panel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+.panel-section {
+    margin-bottom: 20px;
+}
+
+.panel-section h3 {
+    color: #00ff88;
+    margin-bottom: 10px;
+}
+
+.demand-card, .ai-card {
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    cursor: move;
+    position: relative;
+    transition: 0.2s;
+}
+
+.demand-card:hover, .ai-card:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.client-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.demand-condition {
+    font-size: 0.9em;
+    color: #88ff88;
+    margin-top: 5px;
+}
+
+.expire-time {
+    color: #ff5555;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+.ai-properties {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+}
+
+.biohazard {
+    color: #ff5555;
+    font-size: 0.8em;
+}
+
+#ai-response {
+    position: absolute;
+    bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.9);
+    padding: 15px 25px;
+    border-radius: 20px;
+    max-width: 400px;
+    text-align: center;
+    animation: float 3s ease-in-out;
+    backdrop-filter: blur(3px);
+}
+
+#ai-bubble {
+    color: #88ff88;
+    font-size: 1.1em;
+    text-shadow: 0 0 5px rgba(136,255,136,0.5);
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(-50%, 0px); }
+    50% { transform: translate(-50%, -20px); }
+}
+
+#ending-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    width: 500px;
+    backdrop-filter: blur(10px);
+}
+
+#restart-btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #00ff88;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.2s;
+}
+
+#restart-btn:hover {
+    background: #00cc6a;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 999;
+}
+
+/* 新增资源图标样式 */
+.resource-icon {
+    position: relative;
+    width: 48px;
+    height: 48px;
+}
+
+.type-icon {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.status-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+}
+
+.resource-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+}
+
+.label {
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+
+/* style.css 新增内容 */
+/* 在原有样式后添加 */
+#clear-ai-btn {
+    position: absolute;
+    bottom: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 20px;
+    background: rgba(255, 85, 85, 0.8);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    z-index: 999;
+    backdrop-filter: blur(3px);
+}
+
+.material-belt {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    background: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    margin: 0 20px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.material-slide {
+    display: flex;
+    gap: 15px;
+    padding: 5px 20px;
+    margin-left: auto;
+    transition: none;
+}
+
+/* 隐藏滚动条 */
+.material-slide::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes beltMove {
+    0% { 
+        transform: translateX(0); /* 从初始位置开始 */
+    }
+    100% {
+        transform: translateX(calc(-100% - 100vw)); /* 移动到左侧屏幕外 */
+    }
+}
+
+@keyframes materialAppear {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* 新增暂停状态 */
+.game-paused .material-slide {
+    animation-play-state: paused;
+}
+
+.tooltip {
+    position: fixed;
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    pointer-events: none;
+    white-space: pre-wrap;
+    max-width: 300px;
+    z-index: 1000;
+    transform: translate(-50%, -100%);
+    bottom: auto !important; /* 修复提示位置 */
+    top: -30px;
+}
+
+.tooltip.bottom-tip {
+    transform: translate(-50%, 0);
+    top: auto;
+    bottom: -30px;
+}
+
+/* 新增拖拽状态 */
+.material.dragging {
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+
+/* 新增拖拽状态提示 */
+.material.dragging {
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+
+#mixing-chamber.active {
+    border-width: 4px;
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 10px #00ff88; }
+    to { box-shadow: 0 0 20px #00ff88; }
+}
+
+.particle-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #00ff88;
+    border-radius: 50%;
+    animation: particleFly 0.8s ease-out forwards;
+}
+
+@keyframes particleFly {
+    0% { transform: translate(0,0); opacity: 1; }
+    100% { transform: translate(200px, -200px); opacity: 0; }
+}
+
+.material, .demand-card, .ai-card {
+    cursor: url('assets/ui/hand-cursor.png') 15 15, grab;
+}
+
+.material:active, .demand-card:active {
+    cursor: url('assets/ui/grab-cursor.png') 15 15, grabbing;
+}
+html
+
+/* 新增客户图标 */
+.client-icon[src*="sweatshop.png"] {
+    filter: brightness(0.8);
+}
+
+#pause-btn {
+    padding: 12px 30px;
+    font-size: 1.2em;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0,255,136,0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#pause-btn::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('assets/ui/pause-icon.png') center/contain;
+}
+
+#pause-btn:hover {
+    transform: translateX(-50%) scale(1.1);
+}
